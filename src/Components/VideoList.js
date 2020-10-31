@@ -1,10 +1,15 @@
-import { render } from "@testing-library/react";
 import React from "react";
 import VideoItem from "./VideoItem";
 
-const VideoList = ({ videos }) => {
+const VideoList = ({ videos, onVideoClick }) => {
   const renderList = videos.map((video) => {
-    return <VideoItem video={video} />;
+    return (
+      <VideoItem
+        key={video.id.videoId}
+        video={video}
+        onVideoClick={onVideoClick}
+      />
+    );
   });
 
   return (
